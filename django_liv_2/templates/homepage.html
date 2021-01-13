@@ -1,0 +1,12 @@
+<h1> Questa è la homepage del sito </h1>
+<h2> benvenuto! {{ giornalista }}</h2>
+
+<h4><em>Giornalisti</em></h4>
+{% for giornalista in giornalisti %}
+      <p>{{ giornalista.nome }} {{giornalista.cognome}}</p>
+      <p style="margin-left: 20px;"><strong>Articoli:</strong>
+      {% for articolo in giornalista.articoli.all %}
+      <p style="margin-left: 40px;"><a href="{{articolo.get_absolute_url}}">{{ articolo.titolo }}</a></p>
+      <p style="margin-left: 40px;">{{ articolo.contenuto }}</p>
+        {% endfor %}
+{% endfor %}
